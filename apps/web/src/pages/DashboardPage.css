@@ -1,0 +1,34 @@
+.dashboard-page{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.welcome-message{
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #d7deea;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+}
+
+.welcome-message h2 {
+  margin-top: 0;
+  color: #1c2b45;
+}
+
+.welcome-message p {
+  margin-bottom: 0;
+  color: #526176;
+  line-height: 1.6;
+}
+
+@media(max-width: 600px){
+  .dashboard-page{
+    padding: 1rem;
+  }
+  .welcome-message{
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+}
