@@ -47,6 +47,8 @@ export function DashboardPage(){
 
   const [isPracticeComplete, setIsPracticeComplete] = useState(false);
   const [checks, setChecks] = useState(migrationChecks);
+  const [searchText, setSearchText] = useState("");
+  const normalizedSearchText = searchText.trim().toLowerCase();
 
   function markCheckComplete(id: string) {
   setChecks((currentChecks) =>
@@ -55,6 +57,13 @@ export function DashboardPage(){
     ),
   );
 }
+
+const filteredChecks = checks.filter((check) => {
+  const searchableText =
+    `${check.title} ${check.owner} ${check.status}`.toLowerCase();
+
+  return searchableText.includes(normalizedSearchText);
+});
 
   return(
     <main className = "dashboard-page">
@@ -66,25 +75,44 @@ export function DashboardPage(){
         title = "A safe practice workspace"
         description = "CareOps uses synthetic records only; it does not store or process real patient data."
         />
+      <section className="check-filter">
+        <label htmlFor="check-search">Filter practice checks</label>
+        <input
+          id="check-search"
+          type="search"
+          value={searchText}
+          onChange={(event) => setSearchText(event.target.value)}
+          placeholder="Try typing owner, status, or title text"
+        />
+        <p>Current filter: {searchText || "None"}</p>
+      </section>
       <section className="checklist">
         <h2>Today's practice checks</h2>
         <ul>
-          {checks.map((check) => (
-            <li key={check.id}>
-            <strong>{check.title}</strong>
-            <span className="check-status">
-              Owner: {check.owner} | Status: {check.status}
-            </span>
-              <button
-                type="button"
-                className="check-button"
-                onClick={() => markCheckComplete(check.id)}
-                disabled={check.status === "Completed"}
-              >
-                {check.status === "Completed" ? "Completed" : "Mark complete"}
-              </button>
-          </li>
-          ))}
+          {filteredChecks.length === 0 ? (
+            <p className="empty-state">
+              No practice checks match "{searchText}".
+            </p>
+          ) : (
+            <ul>
+              {filteredChecks.map((check) => (
+                <li key={check.id}>
+                  <strong>{check.title}</strong>
+                  <span className="check-status">
+                    Owner: {check.owner} | Status: {check.status}
+                  </span>
+                  <button
+                    type="button"
+                    className="check-button"
+                    onClick={() => markCheckComplete(check.id)}
+                    disabled={check.status === "Completed"}
+                  >
+                    {check.status === "Completed" ? "Completed" : "Mark complete"}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </ul>
         <button
           type="button"

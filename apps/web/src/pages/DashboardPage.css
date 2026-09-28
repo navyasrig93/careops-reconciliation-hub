@@ -91,3 +91,47 @@
   cursor: not-allowed;
   background-color: #d7deea;
 }
+
+.check-filter {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid #d7deea;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+}
+
+.check-filter label {
+  color: #1c2b45;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.check-filter input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #aebacc;
+  border-radius: 0.4rem;
+  color: #172033;
+  font: inherit;
+}
+
+.check-filter input:focus {
+  border-color: #4662d8;
+  outline: 3px solid #dce3ff;
+}
+
+.check-filter p {
+  margin: 0;
+  color: #526176;
+  font-size: 0.85rem;
+}
+
+.empty-state {
+  padding: 1rem;
+  border: 1px dashed #aebacc;
+  border-radius: 0.5rem;
+  color: #526176;
+  background-color: #f8fafc;
+}
