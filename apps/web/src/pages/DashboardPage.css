@@ -170,3 +170,38 @@
   color: #166534;
   background-color: #dcfce7;
 }
+
+.summary-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.summary-metric {
+  flex: 1 1 190px;
+  padding: 1.25rem;
+  border: 1px solid #d7deea;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+}
+
+.summary-metric p {
+  margin: 0;
+  color: #526176;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.summary-metric strong {
+  display: block;
+  margin: 0.5rem 0;
+  color: #1c2b45;
+  font-size: 2rem;
+}
+
+.summary-metric span {
+  color: #526176;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}

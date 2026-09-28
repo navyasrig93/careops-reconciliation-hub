@@ -8,6 +8,12 @@ type MigrationCheck = {
   status: "Open" | "In progress" | "Ready for review" | "Completed";
 };
 
+type SummaryMetricProps = {
+  label: string;
+  value: number;
+  description: string;
+};
+
 const migrationChecks: MigrationCheck[] = [
     {
     id: "required-fields",
@@ -56,6 +62,20 @@ function WelcomeMessage({title, description}: WelcomeMessageProps){
   );
 }
 
+function SummaryMetricCard({
+  label,
+  value,
+  description,
+}: SummaryMetricProps) {
+  return (
+    <article className="summary-metric">
+      <p>{label}</p>
+      <strong>{value}</strong>
+      <span>{description}</span>
+    </article>
+  );
+}
+
 export function DashboardPage(){
 
   const [isPracticeComplete, setIsPracticeComplete] = useState(false);
@@ -78,6 +98,28 @@ const filteredChecks = checks.filter((check) => {
   return searchableText.includes(normalizedSearchText);
 });
 
+const completedCheckCount = checks.filter(
+  (check) => check.status === "Completed",
+).length;
+
+const summaryMetrics = [
+  {
+    label: "Total checks",
+    value: checks.length,
+    description: "Validation checks in this practice workspace",
+  },
+  {
+    label: "Completed",
+    value: completedCheckCount,
+    description: "Checks marked complete by the team",
+  },
+  {
+    label: "Remaining",
+    value: checks.length - completedCheckCount,
+    description: "Checks still requiring attention",
+  },
+];
+
   return(
     <main className = "dashboard-page">
       <WelcomeMessage
@@ -88,6 +130,16 @@ const filteredChecks = checks.filter((check) => {
         title = "A safe practice workspace"
         description = "CareOps uses synthetic records only; it does not store or process real patient data."
         />
+      <section className="summary-metrics" aria-label="Migration check summary">
+        {summaryMetrics.map((metric) => (
+          <SummaryMetricCard
+            key={metric.label}
+            label={metric.label}
+            value={metric.value}
+            description={metric.description}
+          />
+        ))}
+      </section>
       <section className="check-filter">
         <label htmlFor="check-search">Filter practice checks</label>
         <input
