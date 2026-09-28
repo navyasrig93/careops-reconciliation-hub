@@ -29,6 +29,19 @@ const migrationChecks: MigrationCheck[] = [
   },
 ];
 
+function getStatusClass(status: MigrationCheck["status"]) {
+  switch (status) {
+    case "Open":
+      return "status-open";
+    case "In progress":
+      return "status-in-progress";
+    case "Ready for review":
+      return "status-ready-for-review";
+    case "Completed":
+      return "status-completed";
+  }
+}
+
 type WelcomeMessageProps={
   title : string;
   description : string;
@@ -98,9 +111,12 @@ const filteredChecks = checks.filter((check) => {
               {filteredChecks.map((check) => (
                 <li key={check.id}>
                   <strong>{check.title}</strong>
-                  <span className="check-status">
-                    Owner: {check.owner} | Status: {check.status}
+                 <div className="check-metadata">
+                  <span className="check-status">Owner: {check.owner}</span>
+                  <span className={`status-badge ${getStatusClass(check.status)}`}>
+                    {check.status}
                   </span>
+                </div>
                   <button
                     type="button"
                     className="check-button"

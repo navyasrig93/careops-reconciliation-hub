@@ -135,3 +135,38 @@
   color: #526176;
   background-color: #f8fafc;
 }
+
+.check-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.status-badge {
+  display: inline-flex;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status-open {
+  color: #3730a3;
+  background-color: #e0e7ff;
+}
+
+.status-in-progress {
+  color: #92400e;
+  background-color: #fef3c7;
+}
+
+.status-ready-for-review {
+  color: #5b21b6;
+  background-color: #ede9fe;
+}
+
+.status-completed {
+  color: #166534;
+  background-color: #dcfce7;
+}
