@@ -6,11 +6,11 @@ import { ImportsPage } from "./pages/ImportsPage";
 export default function App() {
   return (
     <Routes>
-      <Route element={<AppShell />}>
+     <Route element={<AppShell />}>
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/imports" element={<ImportsPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
-      <Route path="/imports" element={<ImportsPage />} />
     </Routes>
   );
 }
