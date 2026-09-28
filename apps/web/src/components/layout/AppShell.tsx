@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-const navigationItems = ["Dashboard", "Imports", "Exceptions", "Rules", "Reports"];
+const upcomingNavigationItems = ["Exceptions", "Rules", "Reports"];
 
 export function AppShell() {
   return (
@@ -21,9 +21,12 @@ export function AppShell() {
           <NavLink className="nav-link" to="/dashboard">
             Dashboard
           </NavLink>
+          <NavLink className="nav-link" to="/imports">
+            Imports
+          </NavLink>
 
           <p className="nav-heading">Coming soon</p>
-          {navigationItems.slice(1).map((item) => (
+          {upcomingNavigationItems.map((item) => (
             <span className="nav-link nav-link-muted" key={item}>
               {item}
             </span>
