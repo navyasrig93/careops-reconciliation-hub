@@ -32,3 +32,62 @@
     border-radius: 0.5rem;
   }
 }
+.checklist {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #d7deea;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+}
+
+.checklist h2 {
+  margin-top: 0;
+  color: #1c2b45;
+}
+
+.checklist ul {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0 0 1rem;
+  list-style: none;
+}
+
+.checklist li {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #e4e9f2;
+  border-radius: 0.5rem;
+  background-color: #f8fafc;
+}
+
+.check-status {
+  color: #526176;
+  font-size: 0.9rem;
+}
+
+.check-button,
+.reset-button {
+  width: fit-content;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 0.4rem;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.check-button {
+  background-color: #4662d8;
+}
+
+.reset-button {
+  background-color: #526176;
+}
+
+.check-button:disabled {
+  color: #718096;
+  cursor: not-allowed;
+  background-color: #d7deea;
+}
