@@ -45,6 +45,7 @@ docs/adr            Architecture Decision Records
 infrastructure      Cloud infrastructure definitions
 .github/workflows   CI/CD workflows
 
+##Status
 ## Current Frontend Capabilities
 
 - Responsive React and TypeScript application shell with Dashboard and Imports routes.
