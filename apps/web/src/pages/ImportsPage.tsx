@@ -19,6 +19,13 @@ export function ImportsPage() {
     );
   }
 
+   function handleReset() {
+    setSourceSystem("");
+    setTargetSystem("");
+    setFormMessage("");
+  }
+
+
   return (
     <main className="dashboard-page">
       <section className="welcome-message">
@@ -56,6 +63,10 @@ export function ImportsPage() {
         </p>
 
         <button type="submit">Configure practice import</button>
+
+        <button type="button" onClick={handleReset}>
+           Reset form
+        </button>
 
         {formMessage && (
           <p className="form-message" role="status">
