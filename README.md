@@ -44,3 +44,27 @@ apps/api            FastAPI service
 docs/adr            Architecture Decision Records
 infrastructure      Cloud infrastructure definitions
 .github/workflows   CI/CD workflows
+
+## Current Frontend Capabilities
+
+- Responsive React and TypeScript application shell with Dashboard and Imports routes.
+- Migration-check dashboard with typed data, status badges, dynamic summary metrics, filtering, empty states, completion actions, and reset behavior.
+- Controlled import-configuration form with validation, response feedback, and reset behavior.
+- Responsive sidebar navigation and accessible labels, focus states, status messages, and native button interactions.
+- Automated component and interaction tests using Vitest and React Testing Library.
+
+## Frontend Development
+
+```bash
+cd apps/web
+npm install
+npm run dev
+
+Bash
+
+```
+cd apps/web
+npm run lint
+npm test
+npm run build
+```
